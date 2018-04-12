@@ -1,0 +1,35 @@
+{% extends "Back.html.twig" %}
+
+{% block body %}
+    <table id="example" class="table table-striped">
+
+        <tr>
+            <td> user  </td>
+            <td> id  </td>
+            <td> contenu  </td>
+            <td> action  </td>
+
+        </tr>
+        {% for com in list %}
+            <tr>
+                <td>{{ com.user }}</td>
+
+                <td>{{ com.id }}</td>
+                <td>{{ com.contenu }}</td>
+                <td><a class="btn-danger" href="{{ path("Supprimer_commentaireback",{"id": com.id}) }}">supprimer</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+
+{% block javascripts %}
+    <!-- Insert this at the end of your body element, but before the closing tag -->
+    <script src="{{ asset('bundles/datatables/js/datatables.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#example').dataTable( {
+
+            } );
+        } );
+    </script>
+{% endblock %}

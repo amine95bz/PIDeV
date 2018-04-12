@@ -1,0 +1,25 @@
+{% extends "Front.html.twig" %}
+
+{% block body %}
+    <table  class="table table-striped">
+
+    <tr>
+        <td> id  </td>
+        <td> user  </td>
+
+        <td> contenu  </td>
+    </tr>
+    {% for com in list %}
+    <tr>
+
+
+        <td>{{ com.id }}</td>
+        <td>{{ com.user }}</td>
+
+        <td>{{ com.contenu }}</td>
+        <td><a class="btn-danger" href="{{ path("Supprimer_commentaire",{"id": com.id}) }}">supprimer</a></td>
+        <td><a class="btn-success"  href="{{ path("Modifier_commentaire",{"id": com.id}) }}">modifier</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

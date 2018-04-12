@@ -1,0 +1,53 @@
+local_homepage:
+    path:     /
+    defaults: { _controller: LocalBundle:Default:index }
+
+ajout_local:
+    path:     /ajout
+    defaults: { _controller: LocalBundle:Default:ajout }
+
+all_local:
+    path:     /locaux{id}
+    defaults: { _controller: LocalBundle:Default:locaux }
+
+succes:
+    path:     /ajout/succes
+    defaults: { _controller: LocalBundle:Default:succes }
+
+delete_local:
+    path:     /loacaux/delete{id}
+    defaults: { _controller: LocalBundle:Default:delete }
+
+modifier_local:
+    path:     /loacaux/modifier{id}
+    defaults: { _controller: LocalBundle:Default:modifier }
+
+ajouter_annonce:
+    path:     /Annonce/add
+    defaults: { _controller: LocalBundle:Default:add }
+
+mes_annonces:
+    path:     /Annonce/all{id}
+    defaults: { _controller: LocalBundle:Default:mes_annonces }
+
+modifier_annonce:
+    path:     /Annonce/edit{id}
+    defaults: { _controller: LocalBundle:Default:edit_annonce }
+
+delete_annonce:
+    path:     /Annonce/remove{id}
+    defaults: { _controller: LocalBundle:Default:delete_annonce }
+
+annonce_all:
+    path:     /Annonce/annonces_all
+    defaults: { _controller: LocalBundle:Default:annonce_all }
+
+map:
+    path:     /map
+    defaults: { _controller: LocalBundle:Default:map }
+
+single:
+    path:     /single{id}
+    defaults: { _controller: LocalBundle:Default:single }
+
+

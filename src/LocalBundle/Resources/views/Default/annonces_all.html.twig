@@ -1,0 +1,80 @@
+{% extends 'Front.html.twig' %}
+
+{%  block script %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>
+    <style>
+        .buttonE{
+            font-size: 1em;
+            background: #E9967A;
+            color: #fff;
+            padding: 1em 2em;
+            text-decoration: none;
+            margin-top: 2em;
+        }
+        #divDetailEvent{
+            text-align: center;
+            min-height: 50px;
+            background-size:cover;
+            padding: 10em 0;
+            height: 50px;
+            width: 1680px;
+            display: table;
+            background: url("{{ asset('images/back.jpg') }}") no-repeat fixed 0px 0px;
+        }
+    </style>
+{% endblock %}
+
+{% block container %}
+    <ol class="breadcrumb">
+        <li><a href="{{ path('local_homepage') }}">Home</a></li>
+        <li class="active" >ous les  annonces</li>
+
+    </ol>
+
+
+    <br>
+    <h3 class="tittle1"> Les Annonces</h3>
+    <br>
+
+    <div class="new-arrivals-w3agile">
+        <div class="container">
+            {% for annonce in annonces %}
+                <div class="col-md-3 cap-left simpleCart_shelfItem">
+                    <div class="grid-arr">
+                        <div  class="grid-arrival">
+
+                            <figure>
+                                <a href="#">
+
+                                    <div class="grid-img">
+                                         <img src="{{ asset( 'uploads/images/' ~ annonce.image) }}"  >
+                                    </div>
+                                    <div class="grid-img">
+                                        <img src="{{ asset( 'uploads/images/' ~ annonce.image) }}"  >
+                                    </div>
+                                    <div>
+
+                                    </div>
+
+                                </a>
+                            </figure>
+                        </div>
+                        <div class="block">
+                            <div class="starbox small ghosting"> </div>
+                        </div>
+
+                        <div class="women">
+                            <a class="edit" href="{{ path('single',{'id':annonce.id}) }}"> view </a>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock %}

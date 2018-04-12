@@ -1,0 +1,72 @@
+{% extends 'Front.html.twig' %}
+{% block container %}
+    <script>
+        function initMap() {
+            var uluru = {lat: -25.363, lng: 131.044};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: uluru
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+        }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsAe9v3h1PZXsrWgn6TjJw_-tbV-f-tOU&callback=initMap">
+    </script>
+    <h3>Ajouter un local</h3>
+    <ol class="breadcrumb">
+        <li><a href="{{ path('local_homepage') }}">Home</a></li>
+        <li class="active" >Ajouter un local</li>
+
+    </ol>
+
+    <div class="col-md-12">
+        <div class="col-md-6">
+
+            {{ form_start(Form) }}
+
+            <div class="key" >
+                <i class="fa fa-keyboard-o" aria-hidden="true"></i>
+                {{ form_widget(Form.nomp, {'attr': {'placeholder': 'Nom Produit','class':'form-control placeholder-no-fix','required' : 'true'}}) }}
+                <div class="clearfix"></div>
+            </div>
+            <div class="key">
+                <i class="fa fa-clipboard" aria-hidden="true"></i>
+                {{ form_widget(Form.prix, {'attr': {'placeholder': 'Prix','class':'form-control placeholder-no-fix','required' : 'true'}}) }}
+                <div class="clearfix"></div>
+            </div>
+            <div class="key">
+                <i class="fa fa-sort-numeric-asc" aria-hidden="true"></i>
+                {{ form_widget(Form.img, {'attr': {'placeholder': 'Image','class':'form-control placeholder-no-fix','required' : 'true'}}) }}
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="key">
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                {{ form_widget(Form.quantit, {'attr': {'placeholder': 'quantité','class':'form-control placeholder-no-fix','required' : 'true'}}) }}
+
+
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="key">
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                {{ form_widget(Form.descrip, {'attr': {'placeholder': 'Description','class':'form-control placeholder-no-fix','required' : 'true'}}) }}
+
+
+                <div class="clearfix"></div>
+            </div>
+
+
+
+            <div class="clearfix"></div>
+
+
+
+            {{ form_end(Form) }}
+
+
+{% endblock %}

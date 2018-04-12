@@ -1,0 +1,71 @@
+produit_homepage:
+    path:     /
+    defaults: { _controller: ProduitBundle:Default:index }
+
+Adminaff:
+    path:     /afficheadmine
+    defaults: { _controller: ProduitBundle:Default:admin }
+
+supAdmin:
+    path:     /produits/sup{ref}
+    defaults: { _controller: ProduitBundle:Default:supAdmin }
+
+tout_produit:
+    path:     /produits
+    defaults: { _controller: ProduitBundle:Default:produits }
+
+ajout_produit:
+    path:     /add
+    defaults: { _controller: ProduitBundle:Default:add }
+
+valide:
+    path:     /add/valide
+    defaults: { _controller: ProduitBundle:Default:valide }
+
+validePaeiment:
+    path:     /payment/valide
+    defaults: { _controller: ProduitBundle:Default:valideP }
+
+affichage:
+    path:     /afficher
+    defaults: { _controller: ProduitBundle:Default:afficherProduit }
+
+payment_produit:
+    path:     /payment
+    defaults: { _controller: ProduitBundle:Default:payment }
+
+sup_produit:
+    path:     /produits/sup{ref}
+    defaults: { _controller: ProduitBundle:Default:sup }
+
+modifier_produit:
+    path:     /modif{ref}
+    defaults: { _controller: ProduitBundle:Default:modifierProduit }
+
+vetement:
+    path:     /vet
+    defaults: { _controller: ProduitBundle:Default:vetement }
+
+accessoire:
+    path:     /acc
+    defaults: { _controller: ProduitBundle:Default:accessoire }
+
+alimentation:
+    path:     /ali
+    defaults: { _controller: ProduitBundle:Default:aliment }
+
+autreProduit:
+    path:     /autre
+    defaults: { _controller: ProduitBundle:Default:other }
+
+detailProduit:
+    path:     /detailProd
+    defaults: { _controller: ProduitBundle:Default:detailProd }
+
+pdfProduit:
+    path:     /pdfProduit
+    defaults: { _controller: ProduitBundle:Default:pdfProd }
+
+
+
+

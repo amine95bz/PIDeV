@@ -1,0 +1,23 @@
+PartageBundle\Entity\Reclamation:
+    type: entity
+    table: null
+    repositoryClass: PartageBundle\Repository\ReclamationRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        reclameur:
+            type: string
+            length: 255
+        reclamee:
+            type: string
+            length: 255
+        contenu:
+            type: string
+            length: 255
+        date:
+            type: datetime
+    lifecycleCallbacks: {  }

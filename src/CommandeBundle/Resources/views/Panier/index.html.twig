@@ -1,0 +1,94 @@
+{% extends 'Front.html.twig' %}
+{% block body %}
+  <style>
+        #divDetailEvent{
+            text-align: center;
+            min-height: 100px;
+            background-size:cover;
+            padding: 10em 0;
+            height: 100px;
+            width: 1680px;
+            display: table;
+            background: url("{{ asset('images/back.jpg') }}") no-repeat fixed 0px 0px;
+        }
+    </style>
+    <div id="divDetailEvent">
+        <h3 class="tittle"></h3>
+        <div class="button">
+            <!--  <a href="#" class="button1"> Retourner vers la page d'acceuil</a>
+              <a href="#" class="button1"> Quick View</a> -->
+        </div>
+    </div>
+{% set totalHT = 0 %}
+{% set totalTTC = 0%}
+
+<div class="container">
+    <div class="row">
+        <?php include '../layout/col-left.php'; ?>
+        <div class="span9">
+
+
+            <h2>Votre parnier</h2>
+            <form>
+
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <p><centre>
+                    {% for flashMessage in app.session.flashbag.get('success') %}
+                        <div>
+                            {{ flashMessage }}
+                        </div>
+                    {% endfor %}</p></centre>
+                    <tr>
+                        <th>Références</th>
+                        <th>Quantité</th>
+                        <th>Prix unitaire</th>
+                        <th>Total HT</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if produits|length == 0 %}
+                        <tr>
+                            <td colspan="4"><center>Aucun articles dans votre panier</center></td>
+                        </tr>
+                    {% endif %}
+                       {% for produit in produits %}
+                    <tr>
+                        <form action="{{ path('ajouter', { 'ref' : produit.ref }) }}" method="get">
+                        <td>{{ produit.nomp }}</td>
+                        <td>
+                            <select name="quantit" class="span1" onChange="this.form.submit()">
+                                {% for i in 1..10 %}
+                                    <option value="{{ i }}" {% if i == panier[produit.ref] %} selected="selected" {% endif %}>{{ i }}</option>
+                                {% endfor %}
+                            </select>&nbsp;
+
+                            <a href="{{ path('supprimer', { 'ref' : produit.ref }) }}"><i class="icon-trash"></i>supprimer</a>
+                        </td>
+                        <td>{{ produit.prix }}dt</td>
+                        <td>{{ produit.prix * panier[produit.ref] }}dt</td>
+                        </form>
+                    </tr>
+                           {% set totalHT = totalHT + (produit.prix * panier[produit.ref]) %}
+                           {% set totalTTC = totalTTC + (produit.prix * panier[produit.ref]) %}
+                       {% endfor %}
+                    </tbody>
+                </table>
+            </form>
+    {% if produits|length != 0 %}
+            <dl class="dl-horizontal pull-right">
+                <dt>Total HT :</dt><dd>{{ totalHT }} €</dd>
+
+
+
+                <dt>Total:</dt><dd>{{ totalTTC }}€</dd>
+            </dl>
+            <div class="clearfix"></div>
+            <a href="livraison" class="btn btn-success pull-right">Valider mon panier</a>
+        {% endif %}
+            <a href="afficher" class="btn btn-primary">Continuer mes achats</a>
+        </div>
+
+    </div>
+</div>
+    {% endblock %}

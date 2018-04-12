@@ -1,0 +1,34 @@
+commande_homepage:
+    path:     /
+    defaults: { _controller: CommandeBundle:Default:index }
+panier:
+    path:     /panier
+    defaults: { _controller: CommandeBundle:Panier:panier }
+livraison:
+   path: /livraison
+   defaults: { _controller: CommandeBundle:Panier:livraison }
+validation:
+   path: /validation
+   defaults: { _controller: CommandeBundle:Panier:validation }
+ajouter:
+   path: /ajouter{ref}
+   defaults: { _controller: CommandeBundle:Panier:ajouter }
+supprimer:
+   path: /supprimer{ref}
+   defaults: { _controller: CommandeBundle:Panier:supprimer }
+livraisonAdresseSuppression:
+    path: /livraison/supp{id}
+    defaults: { _controller: CommandeBundle:Panier:adresseSuppression }
+AjoutCommande:
+    path: /ajout
+    defaults: { _controller: CommandeBundle:Commande:prepareCommande }
+validationCommande:
+    path:  /api/banque/{id}
+    defaults: { _controller: CommandeBundle:Commande:validationCommande }
+adminCommande:
+    path:  /profile/admin/commande
+    defaults: { _controller: CommandeBundle:CommandeAdmin:commandes }
+
+adminShowFacture:
+    path:  /profile/admin/facture/{id}
+    defaults: { _controller: CommandeBundle:CommandeAdmin:showFacture }

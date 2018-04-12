@@ -1,0 +1,105 @@
+{% extends 'Front.html.twig' %}
+
+
+{% block container %}
+
+
+    {#<style>#}
+
+        {#.notification {#}
+            {#position: absolute;#}
+            {#bottom: 8px;#}
+            {#left: 16px;#}
+            {#z-index: 15;#}
+            {#cursor: pointer;#}
+            {#border-left: 6px solid #00aeef;#}
+            {#font-size: 12px;#}
+            {#line-height: 15px;#}
+            {#padding: 20px 5px 20px 11px;#}
+            {#letter-spacing: 1px;#}
+            {#border-radius: 0px 5px 5px 0px;#}
+            {#color: #fff;#}
+            {#background-color: #222931;#}
+            {#width: 200px;#}
+            {#height: auto;#}
+            {#-webkit-box-shadow: 0px 0px 14px 0px rgba(50, 50, 50, 0.75);#}
+            {#-moz-box-shadow:    0px 0px 14px 0px rgba(50, 50, 50, 0.75);#}
+            {#box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.75);#}
+
+        {#}#}
+
+    {#</style>#}
+
+    {#<div class="notification">Produit Ajouter</div>#}
+{#<script>#}
+
+
+
+{#</script>#}
+
+    <div class="login">
+    <div class="main-agileits">
+    <div class="form-w3agile form1">
+<br>
+    <h3>Ajouter Produit</h3>
+    <br>
+    <ol class="breadcrumb">
+        <li><a href="{{ path('base_homepage') }}">Home</a></li>
+        <li class="active" >Ajouter Produit</li>
+
+    </ol>
+
+
+
+            {{ form_start(Form) }}
+
+            <div  >
+                <i class="fa fa-keyboard-o" aria-hidden="true"></i>
+                {{ form_widget(Form.nomp, {'attr': {'placeholder': 'Nom Produit','class':'form-control placeholder-no-fix','required' : 'true'}}) }}
+                <div class="clearfix"></div>
+            </div>
+            <div >
+                <i class="fa fa-keyboard-o" aria-hidden="true"></i>
+                {{ form_widget(Form.prix, {'attr': {'placeholder': 'Prix','class':'form-control placeholder-no-fix','required' : 'true'}}) }}
+                <div class="clearfix"></div>
+            </div>
+            <div >
+                <i class="fa fa-file-picture-o" aria-hidden="true"></i>
+                {{ form_widget(Form.img, {'attr': {'placeholder': 'Image','class':'form-control placeholder-no-fix','required' : 'true'}}) }}
+
+                <div class="clearfix"></div>
+            </div>
+            <div >
+                <i class="fa fa-sort-numeric-asc" aria-hidden="true"></i>
+                {{ form_widget(Form.quantit, {'attr': {'placeholder': 'quantité','class':'form-control placeholder-no-fix','required' : 'true'}}) }}
+
+
+                <div class="clearfix"></div>
+            </div>
+
+            <div>
+                <i class="fa fa-clipboard" aria-hidden="true"></i>
+                {{ form_widget(Form.descrip, {'attr': {'placeholder': 'Description','class':'form-control placeholder-no-fix','required' : 'true'}}) }}
+
+
+                <div class="clearfix"></div>
+            </div>
+
+    <div >
+        <i class="fa fa-keyboard-o" aria-hidden="true"></i>
+        {{ form_widget(Form.type, {'attr': {'placeholder': 'Type','class':'form-control placeholder-no-fix','required' : 'true'}}) }}
+
+
+        <div class="clearfix"></div>
+    </div>
+<br>
+
+                <div class="clearfix"></div>
+
+
+
+    {{ form_end(Form) }}
+
+    </div></div></div>
+
+{% endblock %}

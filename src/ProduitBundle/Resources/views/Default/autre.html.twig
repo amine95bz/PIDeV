@@ -1,0 +1,71 @@
+{% extends 'Front.html.twig' %}
+
+
+
+{% block body %}
+    <style>
+        .buttonE{
+            font-size: 1em;
+            background: #E9967A;
+            color: #fff;
+            padding: 1em 2em;
+            text-decoration: none;
+            margin-top: 2em;
+        }
+        #divDetailEvent{
+            text-align: center;
+            min-height: 50px;
+            background-size:cover;
+            padding: 10em 0;
+            height: 50px;
+            width: 1680px;
+            display: table;
+            background: url("{{ asset('images/back.jpg') }}") no-repeat fixed 0px 0px;
+        }
+    </style>
+
+    <br>
+    <h3 class="tittle1"> Autres produits Artisanale</h3>
+    <br>
+    <button class="buttonE">
+        <a href="{{ path('ajout_produit') }}" class="buttonE">+ Ajouter un nouveau Produit</a>
+    </button>
+    <div class="new-arrivals-w3agile">
+        <div class="container">
+            {% for produit in produit %}
+                <div class="col-md-3 cap-left simpleCart_shelfItem">
+                    <div class="grid-arr">
+                        <div  class="grid-arrival">
+
+                            <figure>
+                                <a href="{{ path('detailProduit',{'ref':produit.ref}) }}">
+                                    <div class="grid-img">
+                                        <img  src="{{ asset( 'ProduitImages/' ~ produit.img) }}" class="img-responsive" alt="">
+                                    </div>
+
+
+                                </a>
+                            </figure>
+
+                        </div>
+                        <div class="block">
+                            <div class="starbox small ghosting"> </div>
+                        </div>
+                        <div class="women">
+                            <h6><a href="{{ path('detailProduit',{'ref':produit.ref}) }}">{{ produit.nomp }}</a></h6>
+                            <p ><em class="item_price">{{ produit.prix }} </em></p>
+
+                            <a href="#" data-text="Add to chart" class="my-cart-b">ajouter au panier</a>
+                        </div>
+                    </div>
+
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+    <br><br><br>
+{% endblock %}

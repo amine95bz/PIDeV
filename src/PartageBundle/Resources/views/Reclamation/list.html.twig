@@ -1,0 +1,26 @@
+{% extends "Back.html.twig" %}
+
+{% block body %}
+    <table border="6"  class="table table-striped">
+
+    <tr>
+    <td> reclameur  </td>
+    <td>  reclamee  </td>
+    <td> id  </td>
+    <td> contenu  </td>
+        <td> action  </td>
+
+    </tr>
+    {% for rec in list %}
+        <tr>
+  <td>{{ rec.reclameur }} </td>
+            <td>  {{ rec.reclamee }} </td>
+            <td>{{ rec.id }} </td>
+            <td>{{ rec.contenu }} </td>
+            <td><a class="btn-danger" href="{{ path("Supprimer_reclamation",{"id": rec.id}) }}">supprimer</a></td>
+
+
+        </tr>
+{% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'Front.html.twig' %}
+
+{% block body %}
+    <style>
+        #divDetailEvent{
+            text-align: center;
+            min-height: 100px;
+            background-size:cover;
+            padding: 10em 0;
+            height: 100px;
+            width: 1680px;
+            display: table;
+            background: url("{{ asset('images/back.jpg') }}") no-repeat fixed 0px 0px;
+        }
+    </style>
+    <div id="divDetailEvent">
+        <h3 class="tittle">Livraison</h3>
+        <div class="button">
+            <!--  <a href="#" class="button1"> Retourner vers la page d'acceuil</a>
+              <a href="#" class="button1"> Quick View</a> -->
+        </div>
+    </div>
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <h2>Livraison</h2>
+            <div id="collapseOne" class="accordion-body collapse in">
+                <div class="accordion-inner">
+                    <div class="span4">
+                        <div class="col-md-6">
+
+                            {% if user.adress|length != 0 %}
+                            <form action="{{ path('validation') }}" method="POST">
+
+                                <h4>Adresse de livraison</h4>
+                                {% for adresse in user.adress %}
+                                    <label class="radio">
+                                        <input type="radio" name="livraison" value="{{ adresse.id }}" {% if loop.index0 == 0 %}checked="checked"{% endif %}>
+                                        {{ adresse.adresse }}, {{ adresse.cp }} {{ adresse.ville }} - {{ adresse.pays }} <a href="{{ path('livraisonAdresseSuppression', { 'id' : adresse.id }) }}"><i class="fa fa-500px"></i></a>
+                                        <br />{{ adresse.prenom }} {{ adresse.nom }}
+                                    </label>
+                                {% endfor %}
+
+                                <br /><br />
+
+                                <h4>Adresse de facturation</h4>
+                                {% for adresse in user.adress %}
+                                    <label class="radio">
+                                        <input type="radio" name="facturation" value="{{ adresse.id }}" {% if loop.index0 == 0 %}checked="checked"{% endif %}>
+                                        {{ adresse.adresse }}, {{ adresse.cp }} {{ adresse.ville }} - {{ adresse.pays }} <a href="{{ path('livraisonAdresseSuppression', { 'id' : adresse.id }) }}"><i class="fa fa-500px"></i></a>
+                                        <br />{{ adresse.prenom }} {{ adresse.nom }}
+                                    </label>
+                                {% endfor %}
+
+                                <br />
+
+                                <button class="btn btn-primary">Valider mes adresses</button>
+                            </form>
+                        {% endif %}
+                        </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="span4 offset2">
+                        <div class="col-md-6 ">
+                            <div class="login">
+                                <div class="main-agileits">
+                                    <div class="form-w3agile form1">
+                        <h4>Ajouter une nouvelle adresse</h4>
+                        <form action="{{ path('livraison') }}" method="POST">
+
+                            {{ form_widget(form) }}
+                            <button class="btn btn-primary" type="submit">Ajouter</button>
+
+                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

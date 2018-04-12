@@ -1,0 +1,29 @@
+{% extends "Front.html.twig" %}
+
+{% block body %}
+    <table border="6"  class="table table-striped">
+
+        <tr>
+            <td> reclameur  </td>
+            <td>  reclamee  </td>
+            <td> id  </td>
+            <td> contenu  </td>
+            <td> action  </td>
+            <td> action  </td>
+
+
+        </tr>
+        {% for rec in list %}
+            <tr>
+                <td>{{ rec.reclameur }} </td>
+                <td>  {{ rec.reclamee }} </td>
+                <td>{{ rec.id }} </td>
+                <td>{{ rec.contenu }} </td>
+                <td><a class="btn-danger" href="{{ path("SupprimerFront_reclamation",{"id": rec.id}) }}">supprimer</a></td>
+                <td><a class="btn-success" href="{{ path("Modifier_reclamation",{"id": rec.id}) }}">modifier</a></td>
+
+
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

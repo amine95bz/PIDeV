@@ -1,0 +1,34 @@
+{% extends "Back.html.twig" %}
+{% block body %}
+
+
+<h3>Recherche</h3>
+<form method="post">
+    <input type="text" name="reclameur">
+    <input type="submit" value="Rechercher">
+</form>
+
+<h3>liste des Reclamation</h3>
+
+<table border="2"  class="table table-striped">
+    <th>id</th>
+    <th>reclameur</th>
+    <th>reclamee</th>
+    <th>contenu</th>
+    <th>action</th>
+
+
+
+    {% for rec in Reclamation %}
+        <tr>
+            <td>{{ rec.id }}</td>
+            <td>{{ rec.reclameur }}</td>
+            <td>{{ rec.reclamee }}</td>
+            <td>{{ rec.contenu }}</td>
+            <td><a class="btn-danger" href="{{ path("Supprimer_reclamation",{"id": rec.id}) }}">supprimer</a></td>
+
+
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Liste des Produits disponible</title>
+    <style>
+        table{
+            font-family: Brush Script MT, Brush Script Std, cursive;
+            text-align: center;
+            alignment: center;
+            border-bottom: 1px solid #AAAAAA;
+        }
+        h2{
+            font-family: Brush Script MT, Brush Script Std, cursive
+        }
+        header {
+            color: #777777;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #AAAAAA;
+        }
+        footer {
+            color: #777777;
+            width: 100%;
+            height: 30px;
+            position: absolute;
+            bottom: 0;
+            border-top: 1px solid #AAAAAA;
+            padding: 8px 0;
+            text-align: center;
+        }
+        body {
+            position: relative;
+            width: 21cm;
+            height: 29.7cm;
+            margin: 0 auto;
+            color: #555555;
+            background: #FFFFFF;
+            font-size: 14px;
+            font-family: SourceSansPro;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<header>
+    <div id="company">
+        <h2 style="color: #531A13" class="name" > <strong>Souk El Madina</strong> </h2>
+        <div>Site web :<a href="#">www.soukelmadina.com</a></div>
+        <div style="color: #777777">Numero de telephone :(216) 55.651.150</div>
+        <div>Email :<a href="mailto:company@example.com">soukelmadina@souk.tn</a></div>
+    </div>
+</header>
+
+<main>
+
+    <table  id="myTable" class="table table-hover" align="center" border="1">
+        <tr>
+            {#<th>Reference</th>#}
+            <th>NomProduit</th>
+            <th>Prix</th>
+
+
+            <th>Quantite</th>
+            <th>Description</th>
+            <th>Vendeur</th>
+            <th>Type</th>
+
+
+
+        </tr>
+        {% for produit in produits %}
+        <tr {% if loop.index is odd %}class="color"{% endif %}>
+            {#<td>{{ produit.ref }}</td>#}
+            <td>{{ produit.nomp }}</td>
+            <td>{{ produit.prix }}</td>
+            <td>{{ produit.quantit}}</td>
+            <td>{{ produit.descrip }}</td>
+            <td>{{ produit.prop }}</td>
+            <td>{{ produit.type }}</td>
+
+
+
+            </tr>{% endfor %}
+
+
+    </table>
+
+
+</main>
+
+<footer>
+    With   <img src="http://localhost/medina/web/images/heart.jpg"/>
+    <br>
+    All rights reserved <strong>Souk El Madina</strong> 2017-2018.
+</footer>
+
+</body>
+</html>
+
+
+
+
+
+
+

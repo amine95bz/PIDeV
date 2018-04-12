@@ -1,0 +1,17 @@
+PartageBundle\Entity\Commentaire:
+    type: entity
+    table: null
+    repositoryClass: PartageBundle\Repository\CommentaireRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        contenu:
+            type: string
+            length: 255
+        date:
+            type: datetime
+    lifecycleCallbacks: {  }

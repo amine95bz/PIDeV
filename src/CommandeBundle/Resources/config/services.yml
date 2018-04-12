@@ -1,0 +1,17 @@
+services:
+#    commande.example:
+#        class: CommandeBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+# config/services.yaml
+services:
+    CommandeBundle\Listener\RedirectionListener:
+        arguments: ['@service_container','@session']
+        tags:
+            - { name: 'kernel.event_listener', event: 'kernel.exception', method: 'onKernelRequest'}
+
+    setNewReference:
+        class: CommandeBundle\services\GetReference
+        arguments: ['@security.token_storage', '@doctrine.orm.entity_manager']
+    setNewFacture:
+        class: CommandeBundle\services\GetFacture
+        arguments: ['@service_container']

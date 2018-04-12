@@ -1,0 +1,32 @@
+{% extends "Back.html.twig" %}
+{% block body %}
+
+
+    <h3>Recherche</h3>
+    <form method="post">
+        <input type="text" name="contenu">
+        <input type="submit" value="Rechercher">
+    </form>
+
+    <h3>liste des Commentaires</h3>
+
+    <table border="2"  class="table table-striped">
+        <th>id</th>
+        <th>user</th>
+        <th>contenu</th>
+        <th>action</th>
+
+
+
+        {% for com in Commentaire %}
+            <tr>
+                <td>{{ com.id }}</td>
+                <td>{{ com.user }}</td>
+                <td>{{ com.contenu }}</td>
+                <td><a class="btn-danger" href="{{ path("Supprimer_commentaire",{"id": com.id}) }}">supprimer</a></td>
+
+
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

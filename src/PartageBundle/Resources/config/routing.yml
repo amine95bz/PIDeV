@@ -1,0 +1,74 @@
+partage_homepage:
+    path:     /
+    defaults: { _controller: PartageBundle:Default:index }
+
+Reclamation_homepage:
+    path:     /Reclamation{nom}
+    defaults: { _controller: PartageBundle:Reclamation:add }
+
+list_reclamation:
+    path:     /listreclamation
+    defaults: { _controller: PartageBundle:Reclamation:list }
+
+Modifier_reclamation:
+    path:     /Modifierreclamation/{id}
+    defaults: { _controller: PartageBundle:Reclamation:modifier }
+
+Detail_reclamation:
+    path:     /Detailreclamation/{id}
+    defaults: { _controller: PartageBundle:Reclamation:detail }
+
+Supprimer_reclamation:
+    path:     /Supprimerreclamation/{id}
+    defaults: { _controller: PartageBundle:Reclamation:supprimer }
+
+SupprimerFront_reclamation:
+    path:     /SupprimerFrontreclamation/{id}
+    defaults: { _controller: PartageBundle:Reclamation:supprimerfront }
+
+
+Search_reclamation:
+    path:     /Searchreclamation
+    defaults: { _controller: PartageBundle:Reclamation:search }
+
+ListFront_reclamation:
+    path:     /listfrontreclamation
+    defaults: { _controller: PartageBundle:Reclamation:listfront }
+
+SupprimerFront_reclamation:
+    path:     /SupprimerFrontReclamation/{id}
+    defaults: { _controller: PartageBundle:Commentaire:supprimerfront }
+
+
+Commentaire_homepage:
+    path:     /Commentaire
+    defaults: { _controller: PartageBundle:Commentaire:add }
+
+list_commentaire:
+    path:     /listcommentaire
+    defaults: { _controller: PartageBundle:Commentaire:list }
+
+Modifier_commentaire:
+    path:     /Modifiercommentaire/{id}
+    defaults: { _controller: PartageBundle:Commentaire:modifier }
+
+Detail_commentaire:
+    path:     /Detailcommentaire/{id}
+    defaults: { _controller: PartageBundle:Commentaire:detail }
+
+Supprimer_commentaire:
+    path:     /Supprimercommentaire/{id}
+    defaults: { _controller: PartageBundle:Commentaire:supprimer }
+
+Supprimer_commentaireback:
+    path:     /Supprimercommentaireback/{id}
+    defaults: { _controller: PartageBundle:Commentaire:supprimerback }
+
+
+
+Search_commentaire:
+    path:     /Searchcommentaire
+    defaults: { _controller: PartageBundle:Commentaire:search }
+affichageback:
+    path:     /affichageback
+    defaults: { _controller: PartageBundle:Commentaire:affichageback }
